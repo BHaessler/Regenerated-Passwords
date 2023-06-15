@@ -15,9 +15,9 @@ def get_user_input():
     print("Thanks")
     user_len = input("How long would you like your passwords to be?\n")
     print("Thanks again. Final Question")
-    user_diffi = input("""How difficult would you like your passwords to be (e =
-     just letters, uppercase and lowercase, m = letters and numbers, h = letters, 
-     numbers and symbols) [enter corresponding letter]?\n""").lower()
+    user_diffi = input("How difficult would you like your passwords to be (E ="
+    + " just letters, uppercase and lowercase, H = letters and numbers, H = letters, "
+    + "numbers and symbols) [enter corresponding letter]?\n").lower()
     return user_number, user_diffi, user_len
 
 
@@ -67,6 +67,27 @@ def final_printout(password_list):
     print("\n")
     return None
 
+def print_out(file_yn, popup_yn, password_list):
+    """This is a function that will give the user the option to output the passwords into a file 
+    or a new window."""
+
+    printout = "started"
+    while printout != "complete":
+        if file_yn == "yes":
+            #FIXME create file function here and give it the passwords
+            file_name = input("What do you want to name your file of passwords? \n")
+
+        else:
+            continue
+
+        if popup_yn =="yes":
+            #FIXME create popup window here and print the passwords to look pretty here
+            print("here is your output")
+        else:
+            continue
+        printout = "complete"
+
+    return
 
 def main_func():
     """main code is here, calls functions in order of usage"""
