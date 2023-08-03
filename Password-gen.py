@@ -76,7 +76,9 @@ def print_out(file_yn, popup_yn, password_list):
         if file_yn == "yes":
             #FIXME create file function here and give it the passwords
             file_name = input("What do you want to name your file of passwords? \n")
-
+            with open("Path/To/Your/File.txt", "w") as f:   # Opens file and casts as f 
+                for item in password_list:
+                    f.write(item)
         else:
             continue
 
