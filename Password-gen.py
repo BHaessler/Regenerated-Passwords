@@ -1,8 +1,8 @@
 #calling modules
-"""random module for picking letters for the passwords"""
+"""Random module for picking letters for the passwords"""
 import random
 
-""" import messagebox from tkinter module """
+"""Import messagebox from tkinter module """
 import tkinter.messagebox
 
 #---------------------------------------------------------------------------------
@@ -12,7 +12,7 @@ import tkinter.messagebox
 #---------------------------------------------------------------------------------
 
 def get_user_input():
-    """gathers user inputs for the password creations"""
+    """Gathers user inputs for the password creations"""
 
     user_number = input("How many passwords would you like to create today?\n")
     print("Thanks")
@@ -26,7 +26,7 @@ def get_user_input():
 
 
 def create_char_list(difficulty):
-    """creates a list of viable characters/letters for the passwords to be made from"""
+    """Creates a list of viable characters/letters for the passwords to be made from"""
 
     e_list = ["a","A","b","B","c","C","d","D","e","E","f","F","g","G","h","H",
             "i","I","j","J","k","K","l","L","m","M","n","N","o","O","p","P","q"
@@ -78,7 +78,7 @@ def final_printout(password_list):
 
 
 def print_out(password_list):
-    """This is a function that will give the user the option to output the 
+    """This is a function that will give the user the option to output the
     passwords into a file.
     """
     file_name = input("What do you want to name your file of passwords? \n")
@@ -87,8 +87,7 @@ def print_out(password_list):
         for item in password_list:
             file1.write(item + "\n")
 
-    print("\nYour file has been created")
-    
+    print("\nYour file has been created")   
     return
 
 
@@ -104,7 +103,7 @@ def on_click(passwords_to_print):
 
 
 def main_func():
-    """main code is here, calls functions in order of usage"""
+    """Main code is here, calls functions in order of usage"""
 
     #defining global variables
     user_number = 0
@@ -132,7 +131,7 @@ def main_func():
         on_click(password_final)
 
 
-    print("Thank you for using the password generator today!")
+    print("\nThank you for using the password generator today!")
     return
 
 main_func() #calls "main" for ease of reading
