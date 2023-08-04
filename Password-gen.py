@@ -1,15 +1,18 @@
-# this is a password generator that will ask the user how many passwords they
-# want generated, how difficult they want the passwords to be and how long
-# they want them to be
-
 #calling modules
 """random module for picking letters for the passwords"""
 import random
 
+""" import messagebox from tkinter module """
+import tkinter.messagebox
 
 #---------------------------------------------------------------------------------
+# this is a password generator that will ask the user how many passwords they
+# want generated, how difficult they want the passwords to be and how long
+# they want them to be
+#---------------------------------------------------------------------------------
+
 def get_user_input():
-    """gathers user inputs"""
+    """gathers user inputs for the password creations"""
 
     user_number = input("How many passwords would you like to create today?\n")
     print("Thanks")
@@ -19,6 +22,7 @@ def get_user_input():
     + " just letters, uppercase and lowercase, M = letters and numbers, H = letters, "
     + "numbers and symbols) [enter corresponding letter]?\n").lower()
     return user_number, user_diffi, user_len
+
 
 
 def create_char_list(difficulty):
@@ -44,9 +48,11 @@ def create_char_list(difficulty):
         return final_char_list
 
 
+
 def create_passwd(char_list, number_of_pws, pwd_len):
-    """Given the characters to pick from, the number of passwords to make, and the
-    length, this will create the passwords the user has asked for"""
+    """Given the characters to pick from, the number of passwords to make, and
+     the length, this will create the passwords the user has asked for
+    """
 
     password_list = []
 
@@ -59,8 +65,10 @@ def create_passwd(char_list, number_of_pws, pwd_len):
     return password_list
 
 
+
 def final_printout(password_list):
-    """a function that prints the final password list"""
+    """a function that prints the final password list
+    """
     print("\nThese are your randomly generated passwords:")
     for password in password_list:
         print(password)
@@ -68,29 +76,32 @@ def final_printout(password_list):
     return None
 
 
-def print_out(file_yn, popup_yn, password_list):
-    """This is a function that will give the user the option to output the passwords into a file 
-    or a new window."""
 
-    printout = "started"
-    while printout != "complete":
-        if file_yn == "yes":
-            #FIXME create file function here and give it the passwords
-            file_name = input("What do you want to name your file of passwords? \n")
-            with open(file_name + ".txt", "w") as f:   # Opens file and casts as f
-                for item in password_list:
-                    f.write(item + "\n")
-        else:
-            continue
+def print_out(password_list):
+    """This is a function that will give the user the option to output the 
+    passwords into a file.
+    """
+    file_name = input("What do you want to name your file of passwords? \n")
 
-        if popup_yn =="yes":
-            #FIXME create popup window here and print the passwords to look pretty here
-            print("here is your output")
-        else:
-            continue
-        printout = "complete"
+    with open(file_name + ".txt", "a") as file1:
+        for item in password_list:
+            file1.write(item + "\n")
 
+    print("\nYour file has been created")
+    
     return
+
+
+
+def on_click(passwords_to_print):
+    """A function to put the passwords into a pop out window for the user"""
+    str_print = ""
+    for item in passwords_to_print:
+        str_print += item
+        str_print += "\n"
+    tkinter.messagebox.showinfo("Your Passwords", str_print)
+
+
 
 def main_func():
     """main code is here, calls functions in order of usage"""
@@ -104,20 +115,24 @@ def main_func():
     user_number, user_diffi, user_len = get_user_input()
     user_number = int(user_number)
     user_len = int(user_len)
-    # print(user_number)
-    # print(user_diffi)
-    # print(user_len)
+    
     char_list = create_char_list(user_diffi)
     #print(char_list)
     password_final = create_passwd(char_list, user_number, user_len)
     final_printout(password_final)
-    file_create = input("Do you want to create a file with these passwords? [Yes or no]").lower()
-    file_pop = input("Do you want to have popout window create with these passowrds?").lower()
 
-    print_out(file_create,file_pop, password_final)
-    
+    file_create = input("Do you want to create a file with these passwords? [yes or no] ").lower()
+    if file_create == "yes":
+        print_out(password_final)
+
+    file_pop = input("Do you want to have popout window create with these passwords?"
+    + " [yes or no] ").lower()
+
+    if file_pop == "yes":
+        on_click(password_final)
+
+
+    print("Thank you for using the password generator today!")
     return
-
-
 
 main_func() #calls "main" for ease of reading
