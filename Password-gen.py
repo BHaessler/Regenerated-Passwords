@@ -79,7 +79,8 @@ def final_printout(password_list):
 
 def print_out(password_list):
     """This is a function that will give the user the option to output the
-    passwords into a file.
+    passwords into a file. It requires that the password list be passed as 
+    an arguement
     """
     file_name = input("What do you want to name your file of passwords? \n")
 
@@ -93,45 +94,48 @@ def print_out(password_list):
 
 
 def on_click(passwords_to_print):
-    """A function to put the passwords into a pop out window for the user"""
+    """A function to put the passwords into a pop out window for the user. This 
+    function required the list of passwords as an argument to be passed."""
     str_print = ""
     for item in passwords_to_print:
         str_print += item
         str_print += "\n"
     tkinter.messagebox.showinfo("Your Passwords", str_print)
+    return
 
 
 
-def main_func():
-    """Main code is here, calls functions in order of usage"""
+"""Main code is here, calls functions in order of usage"""
 
-    #defining global variables
-    user_number = 0
-    user_len = 0
-    user_diffi = "0"
+#defining global variables
+user_number = 0
+user_len = 0
+user_diffi = "0"
 
-    #taking in user input
-    user_number, user_diffi, user_len = get_user_input()
-    user_number = int(user_number)
-    user_len = int(user_len)
+#taking in user input
+user_number, user_diffi, user_len = get_user_input()
+user_number = int(user_number)
+user_len = int(user_len)
     
-    char_list = create_char_list(user_diffi)
-    #print(char_list)
-    password_final = create_passwd(char_list, user_number, user_len)
+char_list = create_char_list(user_diffi)
+#print(char_list)
+password_final = create_passwd(char_list, user_number, user_len)
+    
+question = input("Do you want to see the passwords? [yes or no] \n").lower()
+if question == "yes"
     final_printout(password_final)
 
-    file_create = input("Do you want to create a file with these passwords? [yes or no] ").lower()
-    if file_create == "yes":
-        print_out(password_final)
+file_create = input("Do you want to create a file with these passwords? [yes or no] \n").lower()
+if file_create == "yes":
+    print_out(password_final)
 
-    file_pop = input("Do you want to have popout window create with these passwords?"
-    + " [yes or no] ").lower()
+file_pop = input("Do you want to have popout window create with these passwords?"
++ " [yes or no] \n").lower()
+if file_pop == "yes":
+    on_click(password_final)
 
-    if file_pop == "yes":
-        on_click(password_final)
+print("\nThank you for using the password generator today!")
 
 
-    print("\nThank you for using the password generator today!")
-    return
 
 main_func() #calls "main" for ease of reading
