@@ -12,5 +12,5 @@ A password Generator that asks the user for a number of passwords to create, dif
 This was written in Visual Studio code and does not have a GUI component yet. 
 
 ## Upcoming additions
-- A Django webframe that will give the user a GUI component to create these passwords and see them in a more user-friendly manner
-- Also in the works is a component to give the user a file with these created passwords should they choose to do so
+- In the works is a component to give the user a file with these created passwords should they choose to do so
+- Also a popup window with the passwords contained or printed within it
