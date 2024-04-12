@@ -10,6 +10,7 @@ A password Generator that asks the user for a number of passwords to create, dif
 
 ## NOTES
 This was written in Visual Studio code and does not have a GUI component yet. 
+The other password gen code folder contains other simple password algorithms that can be used to create less random passwords (random in the sense that they take user input for the contents of the password instead of being a completely random password creator
 
 ## Upcoming additions
 - In the works is a component to give the user a file with these created passwords should they choose to do so
