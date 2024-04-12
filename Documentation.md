@@ -8,5 +8,8 @@ GUI Module: \
 https://docs.python.org/3/library/tk.html \
 *Cannot be coded in codespaces... need actual environment to test and run this in*
 
-Output Document Module:
+Output Document Module: \
 Outputs the document into a txt file in the local folder for the user to reach later
+
+### Limitations 
+There is no checking on the inputs, I believe the code just errors out if the user inputs the incorrect options 
