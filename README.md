@@ -9,7 +9,8 @@ A password Generator that asks the user for a number of passwords to create, dif
   2. Run the command `pip3 install -r requirements.txt` to ensure you have all the dependencies on the system you are using to run this program.
 
 ## NOTES
-This was written in Visual Studio code and does not have a GUI component yet. 
+This was written in Visual Studio code and does not have a GUI component yet.
+
 The other password gen code folder contains other simple password algorithms that can be used to create less random passwords (random in the sense that they take user input for the contents of the password instead of being a completely random password creator
 
 ## Upcoming additions
