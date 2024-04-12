@@ -15,15 +15,13 @@ def get_user_input():
     """Gathers user inputs for the password creations"""
 
     user_number = input("How many passwords would you like to create today?\n")
-    print("Thanks")
+
     user_len = input("How long would you like your passwords to be?\n")
-    print("Thanks again. Final Question")
+
     user_diffi = input("How difficult would you like your passwords to be (E ="
     + " just letters, uppercase and lowercase, M = letters and numbers, H = letters, "
     + "numbers and symbols) [enter corresponding letter]?\n").lower()
     return user_number, user_diffi, user_len
-
-
 
 def create_char_list(difficulty):
     """Creates a list of viable characters/letters for the passwords to be made from"""
@@ -47,13 +45,10 @@ def create_char_list(difficulty):
         final_char_list = e_list + m_list_adds + h_list_adds
         return final_char_list
 
-
-
 def create_passwd(char_list, number_of_pws, pwd_len):
     """Given the characters to pick from, the number of passwords to make, and
      the length, this will create the passwords the user has asked for
     """
-
     password_list = []
 
     for password in range(0, number_of_pws):
@@ -64,8 +59,6 @@ def create_passwd(char_list, number_of_pws, pwd_len):
 
     return password_list
 
-
-
 def final_printout(password_list):
     """a function that prints the final password list
     """
@@ -74,8 +67,6 @@ def final_printout(password_list):
         print(password)
     print("\n")
     return None
-
-
 
 def print_out(password_list):
     """This is a function that will give the user the option to output the
@@ -90,8 +81,6 @@ def print_out(password_list):
     print("\nYour file has been created")   
     return
 
-
-
 def on_click(passwords_to_print):
     """A function to put the passwords into a pop out window for the user"""
     str_print = ""
@@ -100,11 +89,8 @@ def on_click(passwords_to_print):
         str_print += "\n"
     tkinter.messagebox.showinfo("Your Passwords", str_print)
 
-
-
 def main_func():
     """Main code is here, calls functions in order of usage"""
-
     #defining global variables
     user_number = 0
     user_len = 0
@@ -116,7 +102,7 @@ def main_func():
     user_len = int(user_len)
     
     char_list = create_char_list(user_diffi)
-    #print(char_list)
+
     password_final = create_passwd(char_list, user_number, user_len)
     final_printout(password_final)
 
@@ -129,7 +115,6 @@ def main_func():
 
     if file_pop == "yes":
         on_click(password_final)
-
 
     print("\nThank you for using the password generator today!")
     return
