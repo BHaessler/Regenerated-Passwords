@@ -112,7 +112,6 @@ def main_func():
 
     file_pop = input("Do you want to have popout window create with these passwords?"
     + " [yes or no] ").lower()
-
     if file_pop == "yes":
         on_click(password_final)
 
