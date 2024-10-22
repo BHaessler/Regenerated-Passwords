@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="icon" href="lock.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Password Generator</h1>
+        <form id="passwordForm">
+            <label for="number">Number of Passwords:</label>
+            <input type="number" id="number" required>
+            
+            <label for="length">Length of Passwords:</label>
+            <input type="number" id="length" required>
+            
+            <label for="difficulty">Difficulty (Easy, Medium, or Hard: Please enter E, M or H only):</label>
+            <input type="text" id="difficulty" maxlength="1" required>
+            
+            <button type="submit">Generate Passwords</button>
+        </form>
+        
+        <h2>Your Passwords:</h2>
+        <pre id="passwordsOutput"></pre>
+        <button id="downloadBtn" style="display:none;">Download Passwords</button>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
