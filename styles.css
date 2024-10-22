@@ -24,9 +24,12 @@ label {
 }
 
 input {
-    width: 100%;
+    width: calc(100% - 22px); /* Subtract padding and border */
     padding: 10px;
     margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding is included in width */
 }
 
 button {
