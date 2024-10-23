@@ -5,6 +5,18 @@ document.getElementById('passwordForm').addEventListener('submit', function(e) {
     const lengthOfPasswords = parseInt(document.getElementById('length').value);
     const difficulty = document.getElementById('difficulty').value.toLowerCase();
     
+    // Check for negative numbers
+    if (numberOfPasswords < 1) {
+        alert('Please enter a positive number for the number of passwords.');
+        return;
+    }
+    
+    if (lengthOfPasswords < 1) {
+        alert('Please enter a positive number for the length of passwords.');
+        return;
+    }
+
+    // Difficulty validation
     if (!['e', 'm', 'h'].includes(difficulty)) {
         alert('Invalid difficulty! Please enter E, M, or H.');
         return;
