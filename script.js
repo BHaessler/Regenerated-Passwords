@@ -5,6 +5,23 @@ document.getElementById('passwordForm').addEventListener('submit', function(e) {
     const lengthOfPasswords = parseInt(document.getElementById('length').value);
     const difficulty = document.getElementById('difficulty').value.toLowerCase();
     
+    // Check for negative numbers
+    if (numberOfPasswords < 1) {
+        alert('Please enter a positive number for the number of passwords.');
+        return;
+    }
+    
+    if (lengthOfPasswords < 1) {
+        alert('Please enter a positive number for the length of passwords.');
+        return;
+    }
+
+    // Difficulty validation
+    if (!['e', 'm', 'h'].includes(difficulty)) {
+        alert('Invalid difficulty! Please enter E, M, or H.');
+        return;
+    }
+
     const passwords = generatePasswords(numberOfPasswords, lengthOfPasswords, difficulty);
     
     document.getElementById('passwordsOutput').textContent = passwords.join('\n');
@@ -31,3 +48,12 @@ function generatePasswords(num, length, difficulty) {
     
     return passwords;
 }
+
+document.getElementById('downloadBtn').addEventListener('click', function() {
+    const passwords = document.getElementById('passwordsOutput').textContent;
+    const blob = new Blob([passwords], { type: 'text/plain' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'passwords.txt';
+    link.click();
+});
